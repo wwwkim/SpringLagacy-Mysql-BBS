@@ -11,7 +11,7 @@
 <!-- css link -->
 
 <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-<title>JSP 게시판 웹사이트</title>
+<title>掲示板システム</title>
 </head>
 <body>
 
@@ -23,14 +23,14 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main">BBS</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="main.jsp">main</a>
-				<li><a href="bbs.jsp">board</a>
+				<li class="active"><a href="main">main</a>
+				<li><a href="bbs">board</a>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -38,8 +38,8 @@
 					data-toggle="dropdown" role="botton" aria-haspopup="true"
 					aria-expanded="false">접속하기<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="login.jsp">login</a></li>
-						<li><a href="join.jsp">join</a></li>
+						<li><a href="login">login</a></li>
+						<li><a href="join">join</a></li>
 					</ul></li>
 			</ul>
 		</div>
