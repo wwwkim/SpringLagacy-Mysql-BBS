@@ -14,9 +14,14 @@ public class LoginController {
 
 	@RequestMapping("/loginAction")
 
-	public ModelAndView loginAction(String userID,String userPassword) throws Exception{
+	public ModelAndView loginAction(String userID,String userPassword) {
 		ModelAndView mv=new ModelAndView();
 		mv= service.login(userID,userPassword);
 		return mv;
+	}
+	
+	@RequestMapping("/join")
+	public String join() {
+		return "join";
 	}
 }

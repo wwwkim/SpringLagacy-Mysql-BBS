@@ -9,19 +9,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=divice-width" , initial-scale="1">
 <!-- css link -->
-
 <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 <title>掲示板システム</title>
 </head>
 <body>
-
 	<nav class="navbar navbar-default">
 		<div class="nabvar-haeder">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-nabvar-collapse-1"
 				aria-expanded="false">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="main">BBS</a>
 		</div>
@@ -36,7 +35,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="botton" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
+					aria-expanded="false">menu<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="login">login</a></li>
 						<li><a href="join">join</a></li>
@@ -47,7 +46,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>웹사이트 소개</h1>
+				<h1>wwwkim</h1>
 				<p>이 페이지는 부트스트랩으로 만든 JSP웹사이트입니다.</p>
 				<p>
 					<a class="btn btn-primary btn-pull" href="#" role="button">자세히
@@ -84,7 +83,7 @@
 			</a>
 		</div>
 	</div>
-	<!-- 에니메이션 담당 -->
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="<c:url value="/resources/js/bootstrap.js" />"></script>
 </body>
