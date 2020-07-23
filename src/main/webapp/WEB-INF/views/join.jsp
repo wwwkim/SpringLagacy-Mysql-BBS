@@ -58,7 +58,7 @@
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="PASSWORD"
-							name="userPassword" maxlength="20">
+							name="userPassword" maxlength="20" >
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="NAME"
