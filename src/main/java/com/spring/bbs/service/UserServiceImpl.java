@@ -1,5 +1,6 @@
 package com.spring.bbs.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
 		ModelAndView mv = new ModelAndView();
 		int result = dao.login(userID, userPassword);
 		if (result == 1) {
-			mv.setViewName("main");
+			mv.setViewName("redirect:/main");
 			return mv;
 		} else if (result == 0) {
 			mv.addObject("msg", "<script>alert('Password is wrong') </script>");
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
 			mv.setViewName("join");
 
 		} else {
-			mv.setViewName("main");
+			mv.setViewName("redirect:/main");
 		}
 		return mv;
 	}
