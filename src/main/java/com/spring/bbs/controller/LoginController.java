@@ -72,6 +72,11 @@ public class LoginController {
 		session.invalidate();
 		return "main";
 	}
+	@RequestMapping("/bbs")
+	public String bbs(HttpSession session) {
+		
+		return "bbs";
+	}
 	
 	
 }
