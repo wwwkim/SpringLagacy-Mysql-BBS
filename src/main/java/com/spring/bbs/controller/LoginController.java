@@ -27,7 +27,7 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView();
 		mv = service.login(userID, userPassword);
 		if(mv.getViewName().equals("redirect:/main")) {
-			session.setAttribute("user", userID);
+			session.setAttribute("userID", userID);
 		}
 
 		return mv;
@@ -48,7 +48,7 @@ public class LoginController {
 		} else {
 			mv = service.join(user);
 			if(mv.getViewName().equals("redirect:/main")) {
-				session.setAttribute("user", user.getUserID());
+				session.setAttribute("userID", user.getUserID());
 			}
 		}
 		
@@ -58,9 +58,10 @@ public class LoginController {
 	@RequestMapping("/main")
 	public ModelAndView main(HttpSession session) {
 		String user=null;
-		if(session.getAttribute("user")!=null) {
-			user=(String) session.getAttribute("user");
+		if(session.getAttribute("userID")!=null) {
+			user=(String) session.getAttribute("userID");
 		}
+		
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("user",user);
 		mv.setViewName("main");
@@ -71,11 +72,6 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "main";
-	}
-	@RequestMapping("/bbs")
-	public String bbs(HttpSession session) {
-		
-		return "bbs";
 	}
 	
 	

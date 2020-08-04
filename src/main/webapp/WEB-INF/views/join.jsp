@@ -1,20 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!DOCTYPE html >
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="viewport" content="width=divice-width" , initial-scale="1">
-<!-- css link -->
-
-<link href="<c:url value="/resources/css/bootstrap.css" />"
-	rel="stylesheet">
-<title>掲示板システム</title>
-</head>
-<body>
+<%@ include file="head.jspf"%>
 
 	<nav class="navbar navbar-default">
 		<div class="nabvar-haeder">
@@ -24,7 +11,7 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					　class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">BBS</a>
+			<a class="navbar-brand" href="main">wwwkim</a>
 		</div>
 
 		<div class="collapse navbar-collapse"

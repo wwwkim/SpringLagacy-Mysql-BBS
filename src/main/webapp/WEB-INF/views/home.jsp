@@ -1,18 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--자바 스크립트 사용할수 있게   -->
-<%@ page import="java.io.PrintWriter"%>
-<!DOCTYPE html >
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=divice-width" , initial-scale="1">
-<!-- css link -->
-<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
-<title>掲示板システム</title>
-</head>
-<body>
+<%@ include file="head.jspf"%>
 	<nav class="navbar navbar-default">
 		<div class="nabvar-haeder">
 			<button type="button" class="navbar-toggle collapsed"
@@ -22,7 +11,7 @@
 				<span class="icon-bar"></span> 
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main">BBS</a>
+			<a class="navbar-brand" href="main">wwwkim</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
@@ -46,8 +35,8 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>wwwkim</h1>
-				<p>이 페이지는 부트스트랩으로 만든 JSP웹사이트입니다.</p>
+				<h1>掲示板システム</h1>
+				<p>Bootstrap＋JSP＋Mysql</p>
 				<p>
 					<a class="btn btn-primary btn-pull" href="#" role="button">자세히
 						알아보기</a>
