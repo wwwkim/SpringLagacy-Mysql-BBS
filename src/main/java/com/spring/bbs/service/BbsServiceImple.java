@@ -1,5 +1,7 @@
 package com.spring.bbs.service;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +27,18 @@ BbsDAO bbsDao;
 		return mv;
 		
 	}
+	@Override
+	public ModelAndView getList(int pageNumber) {
+	
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("list", bbsDao.getList(pageNumber));
+		mv.addObject("pageNumber", pageNumber);
+		mv.addObject("nextPage", bbsDao.nextPage(pageNumber+1));
+		mv.setViewName("bbs");
+		return mv;
+	}
+	
+	
 	
 
 }

@@ -2,17 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="head.jspf"%>
-	<nav class="navbar navbar-default">
-		<div class="nabvar-haeder">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-nabvar-collapse-1"
-				aria-expanded="false">
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span> 
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="main">wwwkim</a>
-		</div>
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
@@ -36,10 +25,10 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>掲示板システム</h1>
-				<p>Bootstrap＋JSP＋Mysql</p>
+				<p>Spring＋Mysql＋JSP+Bootstrap</p>
 				<p>
-					<a class="btn btn-primary btn-pull" href="#" role="button">자세히
-						알아보기</a>
+					<a class="btn btn-primary btn-pull" href="https://github.com/wwwkim/spring_bbs" role="button">Move to 
+						GitHub</a>
 				</p>
 			</div>
 		</div>

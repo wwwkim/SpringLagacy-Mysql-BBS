@@ -8,4 +8,6 @@ public interface BbsService {
 
 	ModelAndView wirte(BbsDTO bbs);
 
+	ModelAndView getList(int pageNumber);
+
 }
