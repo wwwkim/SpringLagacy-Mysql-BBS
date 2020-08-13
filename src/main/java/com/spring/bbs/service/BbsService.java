@@ -10,4 +10,6 @@ public interface BbsService {
 
 	ModelAndView getList(int pageNumber);
 
+	ModelAndView getBbs(int bbsID);
+
 }

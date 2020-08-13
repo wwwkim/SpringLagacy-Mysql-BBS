@@ -15,6 +15,7 @@ import com.spring.bbs.service.BbsService;
 public class BbsController {
 	@Autowired
 	BbsService bbsService;
+	
 
 	@RequestMapping("/bbs")
 	public ModelAndView bbs(HttpSession session, HttpServletRequest request) {
@@ -29,6 +30,23 @@ public class BbsController {
 	}
 		ModelAndView mv = new ModelAndView();
 		mv = bbsService.getList(pageNumber);
+
+		return mv;
+	}
+	@RequestMapping("/view")
+	public ModelAndView view(HttpSession session, HttpServletRequest request) {
+		String user = null;
+		if (session.getAttribute("userID") != null) {
+			user = (String) session.getAttribute("userID");
+		}
+		int bbsID=0;
+	if(request.getParameter("bbsID") !=null) {
+		bbsID=Integer.parseInt(request.getParameter("bbsID"));
+		
+	}
+		ModelAndView mv = new ModelAndView();
+	
+		mv = bbsService.getBbs(bbsID);
 
 		return mv;
 	}

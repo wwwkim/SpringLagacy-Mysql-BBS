@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <%@ include file="head.jspf"%>
 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,42 +36,47 @@
 </nav>
 <div class="container" style="width:80%;">
 	<div class="row">
+
 		<table class="table table-striped"
-			style="text-align: center; border: 1px solid #dddddd">
+			style="  text-align: center; border: 1px solid #dddddd">
 			<thead>
 				<tr>
-					<th style="background-color: #eeeeee; text-align: center;">No</th>
-					<th style="background-color: #eeeeee; text-align: center;">Title</th>
-					<th style="background-color: #eeeeee; text-align: center;">Writer</th>
-					<th style="background-color: #eeeeee; text-align: center;">Date</th>
+					<th colspan="3"
+						style=" background-color: #eeeeee; text-align: center;">content</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="bbsdto">
-					<tr>
-						<td>${bbsdto.bbsID}</td>
-						<td><a href="view?bbsID=${bbsdto.bbsID}">${bbsdto.bbsTitle}</a></td>
-						<td>${bbsdto.userID}</td>
-						<td>${bbsdto.bbsDate.substring(0,11)}</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td style="width: 30%;">title</td>
+					<td colspan="2" class=text-left >${bbs.bbsTitle }</td>
+				</tr>
+				<tr>
+					<td>writer</td>
+					<td colspan="2" class=text-left >${bbs.userID }</td>
+				</tr>
+				<tr>
+					<td>reg_date</td>
+					<td colspan="2" class=text-left >${bbs.bbsDate.substring(0,11)}</td>
+				</tr>
+				<tr>
+					<td>content</td>
+					<td colspan="2" style="height: 200px;" class=text-left >${bbs.bbsContent}</td>
+				</tr>
+
 			</tbody>
 		</table>
-		
-			<c:if test="${pageNumber!=1}">
-				<a href="bbs?pageNumber=${pageNumber-1 }"
-					class="btn btn-success btn-arrow-left">before</a>
+		<a href="bbs" class="btn btn-primary">list</a>
+
+		<c:if test="${not empty sessionScope.userID}">
+			<c:if test="${sessionScope.userID == bbs.userID }">
+				<a href="update?bbsID=${bbs.bbsID}" class="btn btn-primary">update</a>
+				<a href="deleteAction?bbsID=${bbs.bbsID}" class="btn btn-primary">delete</a>
 			</c:if>
-			<c:if test="${nextPage }">
-			<a href="bbs?pageNumber=${pageNumber+1}"
-					class="btn btn-success btn-arrow-left">next</a>
-			</c:if>
-	
-		<a href="write" class="btn btn-primary pull-right">Write</a>
+		</c:if>
 	</div>
 </div>
-
 ${msg}
+
 <!-- 에니메이션 담당 -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
