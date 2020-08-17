@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.bbs.dao.BbsDAO;
 import com.spring.bbs.dto.BbsDTO;
 import com.spring.bbs.service.BbsService;
 
@@ -33,6 +34,8 @@ public class BbsController {
 
 		return mv;
 	}
+	
+	
 	@RequestMapping("/view")
 	public ModelAndView view(HttpSession session, HttpServletRequest request) {
 		String user = null;
@@ -87,5 +90,45 @@ public class BbsController {
 		}
 		return mv;
 	}
-
+	@RequestMapping("/update")
+	public ModelAndView update(HttpSession session, HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		String user = null;
+		if (session.getAttribute("userID") != null) {
+			user = (String) session.getAttribute("userID");
+			
+		}
+		if (user == null) {
+			String msg = "<script>alert('Please log in') </script>";
+			mv.addObject("msg", msg);
+			mv.setViewName("login");
+		} 
+		int bbsID=Integer.parseInt(request.getParameter("bbsID"));
+	
+			mv=bbsService.update(bbsID);
+	
+		
+		return mv;
+	}
+	@RequestMapping("/updateAction")
+	public ModelAndView updateAction(HttpSession session, BbsDTO bbs) {
+		ModelAndView mv = new ModelAndView();
+		String user = null;
+		if (session.getAttribute("userID") != null) {
+			user = (String) session.getAttribute("userID");
+			bbs.setUserID(user);
+		}
+		if (user == null) {
+			String msg = "<script>alert('Please log in') </script>";
+			mv.addObject("msg", msg);
+			mv.setViewName("login");
+		} else if (bbs.getBbsTitle().isEmpty() || bbs.getBbsContent().isEmpty()) {
+			String msg = "<script>alert('All the fields are required') </script>";
+			mv.addObject("msg", msg);
+			mv.setViewName("write");
+		} else {
+			mv = bbsService.updateAction(bbs);
+		}
+		return mv;
+	}
 }

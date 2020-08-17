@@ -52,4 +52,28 @@ public class BbsServiceImple implements BbsService {
 		return mv;
 	}
 
+	@Override
+	public ModelAndView update(int bbsID) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("bbs", bbsDao.getBbs(bbsID));
+		mv.setViewName("update");
+
+		return mv;
+	}
+
+	@Override
+	public ModelAndView updateAction(BbsDTO bbs) {
+		ModelAndView mv = new ModelAndView();
+		int result=bbsDao.update(bbs.getBbsID(), bbs.getBbsTitle(), bbs.getBbsContent());
+		if (result > 0) {
+			mv.addObject("bbsID", bbs.getBbsID());
+			mv.setViewName("redirect:/view");
+		} else {
+			mv.addObject("msg", "<script>alert('error') </script>");
+			mv.setViewName("redirect:/update");
+		}
+		return mv;
+		
+	}
 }

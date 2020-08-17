@@ -12,4 +12,10 @@ public interface BbsService {
 
 	ModelAndView getBbs(int bbsID);
 
+	ModelAndView update(int bbsID);
+
+	ModelAndView updateAction(BbsDTO bbs);
+
+	
+
 }

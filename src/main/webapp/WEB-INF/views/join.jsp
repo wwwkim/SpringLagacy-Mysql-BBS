@@ -7,8 +7,8 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="main.jsp">main</a>
-				<li><a href="bbs.jsp">board</a>
+				<li class="active"><a href="main">main</a>
+				<li><a href="bbs">board</a>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
