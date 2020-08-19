@@ -84,14 +84,13 @@ public class BbsDAO {
 		return -1;// DB error
 	}
 
-
 	public List<BbsDTO> getList(int pageNumber) {
 
 		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
 		List<BbsDTO> list = new ArrayList<BbsDTO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				BbsDTO bbs = new BbsDTO();
@@ -108,14 +107,14 @@ public class BbsDAO {
 		}
 		return list;
 	}
-	
+
 	public boolean nextPage(int pageNumber) {
 
 		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1";
-		
+
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -125,15 +124,15 @@ public class BbsDAO {
 		}
 		return false;
 	}
-	
+
 	public BbsDTO getBbs(int bbsID) {
-		String SQL="SELECT * FROM BBS WHERE bbsID=?";
+		String SQL = "SELECT * FROM BBS WHERE bbsID=?";
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, bbsID);
-			rs=pstmt.executeQuery();
-			if(rs.next()){
-				BbsDTO bbs=new BbsDTO();
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				BbsDTO bbs = new BbsDTO();
 				bbs.setBbsID(rs.getInt(1));
 				bbs.setBbsTitle(rs.getString(2));
 				bbs.setUserID(rs.getString(3));
@@ -147,20 +146,35 @@ public class BbsDAO {
 		}
 		return null;
 	}
-	public int update(int bbsID,String bbsTitle,String bbsContent) {
+
+	public int update(int bbsID, String bbsTitle, String bbsContent) {
 		String SQL = "UPDATE bbs SET bbsTitle=?,bbsContent=? WHERE bbsID=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, bbsTitle);
 			pstmt.setString(2, bbsContent);
-			pstmt.setInt(3,bbsID);
-			
+			pstmt.setInt(3, bbsID);
+
 			return pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return -1;// DB error
+	}
+
+	public int delete(int bbsID) {
+		String SQL = "UPDATE bbs SET bbsAvailable=0 WHERE bbsID=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
 	}
 
 }

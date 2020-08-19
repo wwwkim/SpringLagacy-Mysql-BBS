@@ -16,6 +16,8 @@ public interface BbsService {
 
 	ModelAndView updateAction(BbsDTO bbs);
 
+	ModelAndView deleteAction(int bbsID);
+
 	
 
 }

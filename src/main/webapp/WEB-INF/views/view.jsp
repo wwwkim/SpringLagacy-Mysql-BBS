@@ -70,7 +70,7 @@
 		<c:if test="${not empty sessionScope.userID}">
 			<c:if test="${sessionScope.userID == bbs.userID }">
 				<a href="update?bbsID=${bbs.bbsID}" class="btn btn-primary">update</a>
-				<a href="deleteAction?bbsID=${bbs.bbsID}" class="btn btn-primary">delete</a>
+				<a onclick="return confirm('Are you sure to delete it?')"href="deleteAction?bbsID=${bbs.bbsID}" class="btn btn-primary">delete</a>
 			</c:if>
 		</c:if>
 	</div>
